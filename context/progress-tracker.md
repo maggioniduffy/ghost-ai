@@ -13,6 +13,7 @@ Update this file whenever the current phase, active feature, or implementation s
 ## Completed
 
 - Feature 01: Design System — shadcn/ui initialized (Tailwind v4, Radix, Nova preset), lucide-react installed, Button/Card/Dialog/Input/Tabs/Textarea/ScrollArea components added, lib/utils.ts with cn() created, globals.css updated with full dark theme tokens and @theme inline mappings.
+- Feature 02: Editor Chrome — EditorNavbar (fixed top bar, sidebar toggle with PanelLeftOpen/Close icons, left/center/right sections) and ProjectSidebar (floating overlay, slide-in from left, Projects header + close button, My Projects / Shared tabs with empty states, full-width New Project button) created in components/editor/.
 
 ## In Progress
 
@@ -20,7 +21,7 @@ Update this file whenever the current phase, active feature, or implementation s
 
 ## Next Up
 
-- Feature 02: Editor Chrome
+- Feature 03: Auth
 
 ## Open Questions
 
