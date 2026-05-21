@@ -1,5 +1,6 @@
 "use client"
 
+import { useRef, useEffect } from "react"
 import { X, Plus } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
@@ -10,8 +11,18 @@ interface ProjectSidebarProps {
 }
 
 export function ProjectSidebar({ isOpen, onClose }: ProjectSidebarProps) {
+  const sidebarRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (sidebarRef.current) {
+      sidebarRef.current.inert = !isOpen
+    }
+  }, [isOpen])
+
   return (
     <div
+      ref={sidebarRef}
+      aria-hidden={!isOpen}
       className={`fixed left-0 top-12 z-40 flex h-[calc(100vh-3rem)] w-72 flex-col border-r border-surface-border bg-surface shadow-xl transition-transform duration-300 ease-in-out ${
         isOpen ? "translate-x-0" : "-translate-x-full"
       }`}
@@ -22,9 +33,10 @@ export function ProjectSidebar({ isOpen, onClose }: ProjectSidebarProps) {
           variant="ghost"
           size="icon"
           onClick={onClose}
+          aria-label="Close"
           className="h-7 w-7 text-copy-muted hover:text-copy-primary"
         >
-          <X className="h-4 w-4" />
+          <X className="h-4 w-4" aria-hidden />
         </Button>
       </div>
 
